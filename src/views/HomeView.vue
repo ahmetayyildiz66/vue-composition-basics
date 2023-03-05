@@ -19,7 +19,15 @@
 </template>
 
 <script setup>
-import { reactive, computed, watch } from "vue";
+import {
+  reactive,
+  computed,
+  watch,
+  onBeforeMount,
+  onMounted,
+  onBeforeUnmount,
+  onUnmounted,
+} from "vue";
 
 const appTitle = "My Amazing Counter App";
 
@@ -47,6 +55,22 @@ const increaseCounter = (amount, event) => {
 const decreaseCounter = () => {
   counterData.count--;
 };
+
+onBeforeMount(() => {
+  console.log("onBeforeMount");
+});
+
+onMounted(() => {
+  console.log("onMounted");
+});
+
+onBeforeUnmount(() => {
+  console.log("onBeforeUnmount");
+});
+
+onUnmounted(() => {
+  console.log("onUnmounted");
+});
 </script>
 
 <style>
