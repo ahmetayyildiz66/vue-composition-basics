@@ -1,11 +1,12 @@
 <template>
   <div class="home">
+    <h2>{{ appTitle }}</h2>
     <h3>{{ counterData.title }}</h3>
 
     <div class="btns">
       <button class="btn" @click="decreaseCounter">-</button>
       <span class="counter">{{ counterData.count }}</span>
-      <button class="btn" @click="increaseCounter">+</button>
+      <button class="btn" @click="increaseCounter(2, $event)">++</button>
     </div>
 
     <div class="edit">
@@ -18,16 +19,16 @@
 <script setup>
 import { reactive } from "vue";
 
-// const counter = ref(0);
-// const counterTitle = ref("My counter");
+const appTitle = "My Amazing Counter App";
 
 const counterData = reactive({
   count: 0,
   title: "MY Counter",
 });
 
-const increaseCounter = () => {
-  counterData.count++;
+const increaseCounter = (amount, event) => {
+  console.log("event: ", event);
+  counterData.count += amount;
 };
 
 const decreaseCounter = () => {
