@@ -27,6 +27,8 @@ import {
   onMounted,
   onBeforeUnmount,
   onUnmounted,
+  onActivated,
+  onDeactivated,
 } from "vue";
 
 const appTitle = "My Amazing Counter App";
@@ -70,6 +72,14 @@ onBeforeUnmount(() => {
 
 onUnmounted(() => {
   console.log("onUnmounted");
+});
+
+onActivated(() => {
+  console.log("onActivated");
+});
+
+onDeactivated(() => {
+  console.log("onDeactivated");
 });
 </script>
 
