@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { reactive, computed } from "vue";
+import { reactive, computed, watch } from "vue";
 
 const appTitle = "My Amazing Counter App";
 
@@ -27,6 +27,14 @@ const counterData = reactive({
   count: 0,
   title: "MY Counter",
 });
+
+watch(
+  () => counterData.count,
+  (newCount, oldCount) => {
+    console.log("newCount: ", newCount);
+    console.log("oldCount: ", oldCount);
+  }
+);
 
 const oddOrEven = computed(() => {
   return counterData.count % 2 === 0 ? "even" : "odd";
