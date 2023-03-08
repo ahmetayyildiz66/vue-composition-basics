@@ -1,6 +1,6 @@
 <template>
   <teleport to=".modals-container">
-    <div v-if="modelValue" class="modal">
+    <div v-if="modelValue" class="modal-dark">
       <h1>{{ title }}</h1>
       <slot />
       <button @click="handleButtonClick">Hide modal</button>
@@ -37,9 +37,10 @@ const handleButtonClick = () => {
 </script>
 
 <style scoped>
-.modal {
-  background: beige;
-  color: darkgray;
+.modal-dark {
+  background: #333;
+  /* color: darkgray; */
+  color: white;
   padding: 10px;
   position: absolute;
   left: 0;
