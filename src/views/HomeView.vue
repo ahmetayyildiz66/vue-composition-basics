@@ -23,9 +23,10 @@
 /*
   imports
 */
-import { ref, reactive, computed, watch, onMounted, nextTick } from "vue";
+import { ref, onMounted } from "vue";
 
 import { vAutofocus } from "@/directives/vAutofocus";
+import { useCounter } from "@/use/useCounter";
 
 /* app title */
 
@@ -39,37 +40,8 @@ onMounted(() => {
 
 /* counter */
 
-const counterData = reactive({
-  count: 0,
-  title: "MY Counter",
-});
-
-watch(
-  () => counterData.count,
-  (newCount, oldCount) => {
-    console.log("newCount: ", newCount);
-    console.log("oldCount: ", oldCount);
-  }
-);
-
-const oddOrEven = computed(() => {
-  return counterData.count % 2 === 0 ? "even" : "odd";
-});
-
-const increaseCounter = (amount, event) => {
-  counterData.count += amount;
-  nextTick(() => {
-    console.log("do something when counter has updated in the dom");
-  });
-};
-
-const decreaseCounter = () => {
-  counterData.count--;
-};
-
-onMounted(() => {
-  console.log("Do stuff related to Counter");
-});
+const { counterData, oddOrEven, increaseCounter, decreaseCounter } =
+  useCounter();
 
 /*
   directives
