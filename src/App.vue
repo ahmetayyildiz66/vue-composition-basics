@@ -55,6 +55,7 @@ nav a:first-of-type {
 .user-data {
   position: absolute;
   background: beige;
+  color: darkgray;
   top: 0;
   right: 0;
   font-size: 12px;
