@@ -2,19 +2,19 @@
   <div class="home">
     <h2 ref="appTitleRef">{{ appTitle }}</h2>
 
-    <h3>{{ counterData.title }}</h3>
+    <h3>Hard-coded counter title</h3>
 
     <div class="btns">
-      <button class="btn" @click="decreaseCounter">-</button>
-      <span class="counter">{{ counterData.count }}</span>
-      <button class="btn" @click="increaseCounter(2, $event)">++</button>
+      <button class="btn">-</button>
+      <span class="counter">{{ counter.count }}</span>
+      <button class="btn">++</button>
     </div>
 
-    <p>This counter is {{ oddOrEven }}</p>
+    <p>{{ counter.title }}</p>
 
     <div class="edit">
       <h4>Edit counter title:</h4>
-      <input type="text" v-model="counterData.title" v-autofocus />
+      <input v-model="counter.title" type="text" v-autofocus />
     </div>
   </div>
 </template>
@@ -26,7 +26,7 @@
 import { ref, onMounted } from "vue";
 
 import { vAutofocus } from "@/directives/vAutofocus";
-import { useCounter } from "@/use/useCounter";
+import { useCounterStore } from "../stores/counter";
 
 /* app title */
 
@@ -38,10 +38,10 @@ onMounted(() => {
   console.log(`The app title is ${appTitleRef.value.offsetWidth}`);
 });
 
-/* counter */
-
-const { counterData, oddOrEven, increaseCounter, decreaseCounter } =
-  useCounter();
+/*
+  counter
+*/
+const counter = useCounterStore();
 
 /*
   directives

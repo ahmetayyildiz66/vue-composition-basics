@@ -18,3 +18,11 @@ across multiple components without duplicate code.
 ## What are the differences between composables and mixins?
 
 https://vueschool.io/articles/vuejs-tutorials/what-is-a-vue-js-composable/
+
+## Composable State vs Vuex vs Pinia
+
+Evan You suggests to use Pinia as the new management system in Vue apps.
+Pinia has some advantages over Vuex:
+-> Pinia has 3 main blocks: state, getters, and actions
+Vuex has 4 blocks state, getters, mutations, and actions.
+Pinia's actions can directly mutate the state without needing to commit in a mutation.
