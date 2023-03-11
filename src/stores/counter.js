@@ -17,4 +17,12 @@ export const useCounterStore = defineStore({
     count: 0,
     title: "My Counter Title",
   }),
+  actions: {
+    increaseCounter(amount) {
+      this.count += amount;
+    },
+    decreaseCounter() {
+      this.count--;
+    },
+  },
 });

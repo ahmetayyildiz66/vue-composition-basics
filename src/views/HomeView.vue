@@ -5,9 +5,9 @@
     <h3>Hard-coded counter title</h3>
 
     <div class="btns">
-      <button class="btn">-</button>
+      <button class="btn" @click="counter.decreaseCounter">-</button>
       <span class="counter">{{ counter.count }}</span>
-      <button class="btn">++</button>
+      <button class="btn" @click="counter.increaseCounter(2)">++</button>
     </div>
 
     <p>{{ counter.title }}</p>
