@@ -17,6 +17,11 @@ export const useCounterStore = defineStore({
     count: 0,
     title: "My Counter Title",
   }),
+  getters: {
+    oddOrEven: (state) => {
+      return state.count % 2 === 0 ? "even" : "odd";
+    },
+  },
   actions: {
     increaseCounter(amount) {
       this.count += amount;

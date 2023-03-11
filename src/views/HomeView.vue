@@ -2,7 +2,7 @@
   <div class="home">
     <h2 ref="appTitleRef">{{ appTitle }}</h2>
 
-    <h3>Hard-coded counter title</h3>
+    <h3>{{ counter.title }}</h3>
 
     <div class="btns">
       <button class="btn" @click="counter.decreaseCounter">-</button>
@@ -10,7 +10,7 @@
       <button class="btn" @click="counter.increaseCounter(2)">++</button>
     </div>
 
-    <p>{{ counter.title }}</p>
+    <p>This counter is {{ counter.oddOrEven }}</p>
 
     <div class="edit">
       <h4>Edit counter title:</h4>
